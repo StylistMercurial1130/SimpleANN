@@ -17,6 +17,11 @@ typedef struct _Perceptron{
 
 static float ActivationFunctionReLU(float input){
 
+    if(input < 0)
+        return 0.0;
+    else 
+        return input;
+
 }
 
 static float ActivationFunctionTanh(float input){
