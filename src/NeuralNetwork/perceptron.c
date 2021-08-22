@@ -4,6 +4,7 @@
 #include <math.h>
 
 #define TOTAL_NO_OF_ACTIVATIONFUNCIONS 7
+#define SLOPE_PARAMETER 0.5
 
 typedef struct _Perceptron{
 
@@ -38,8 +39,6 @@ static float ActivationFunctionLinear(float input){
 
 static float ActivationFunctionSoftmax(float input){
 
-
-
 }
 
 static float ActivateFunctionThreshold(float input){
@@ -53,9 +52,18 @@ static float ActivateFunctionThreshold(float input){
 
 static float ActivationFunctionPL(float input){
 
+    if(input >= 0.5)
+        return 1;
+    else if(input < 0.5 && input > -0.5)
+            return input;
+        else if(input <= -0.5)
+                return 0;
+
 }
 
 static float ActivationFunctionSigmoid(float input){
+
+    return (float)(1/(1 + exp(SLOPE_PARAMETER * input)));
 
 }
 
