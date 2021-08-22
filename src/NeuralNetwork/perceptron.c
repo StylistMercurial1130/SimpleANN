@@ -26,17 +26,28 @@ static float ActivationFunctionReLU(float input){
 
 static float ActivationFunctionTanh(float input){
 
+    return (float)tanh(input);
+
 }
 
 static float ActivationFunctionLinear(float input){
+
+    return input;
 
 }
 
 static float ActivationFunctionSoftmax(float input){
 
+
+
 }
 
 static float ActivateFunctionThreshold(float input){
+
+    if(input < 0)
+        return 0;
+    else if(input >= 0)
+            return 1;
 
 }
 
