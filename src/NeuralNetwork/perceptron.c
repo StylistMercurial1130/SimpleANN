@@ -126,6 +126,8 @@ static void _OutputFromActivationFunction(_perceptron * p){
         printf("ERROR : Undefined Actiation Function ! ");
         return;
     }
+
+    p->output = (*ActivationFUnction[p->index])(p->output);
     
 }
 
