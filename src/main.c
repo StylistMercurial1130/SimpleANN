@@ -9,6 +9,8 @@ int main(){
     Perceptron * perceptron = InitPerceptron();
     FeedForward(input,weights,3,0.1,perceptron);
     SummingFunction(perceptron);
+    SetActivationFunction(perceptron,THRESHOLD);
+    OutputFromActivationFunction(perceptron);
     FreePerceptron(perceptron);
 
     return 0;
