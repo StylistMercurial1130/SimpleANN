@@ -30,7 +30,7 @@ typedef enum {
 
 Perceptron * InitPerceptron();
 void SetActivationFunction(Perceptron * instance,ActivationFunctionIndex index);
-void OutputFromActivationFunction(Perceptron * instance);
+void OutputFromActivationFunction(Perceptron * instacnce);
 void FreePerceptron(Perceptron * instance);
 void FeedForward(float input[],float weights[],int size,float bias,Perceptron * perceptron);
 void SummingFunction(Perceptron * instance);

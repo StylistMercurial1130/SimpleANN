@@ -126,8 +126,6 @@ static void _OutputFromActivationFunction(_perceptron * p){
         printf("ERROR : Undefined Actiation Function ! ");
         return;
     }
-
-    p->output = (*ActivationFUnction[p->index])(p->output);
     
 }
 
@@ -176,15 +174,15 @@ void SummingFunction(Perceptron * instance){
 
 }
 
-void SetActivationFunction(Perceptron * instace,ActivationFunctionIndex index){
+void SetActivationFunction(Perceptron * instance,ActivationFunctionIndex index){
 
-    _SetActivationFunction(instace->m_perceptron,index);
+    _SetActivationFunction(instance->m_perceptron,index);
 
 }
 
-void OutputFromActivationFunction(Perceptron * instacnce){
+void OutputFromActivationFunction(Perceptron * instance){
 
-    _OutputFromActivationFunction(instacnce->m_perceptron);
+    _OutputFromActivationFunction(instance->m_perceptron);
 
 }
 
