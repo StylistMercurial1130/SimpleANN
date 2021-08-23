@@ -37,10 +37,6 @@ static float ActivationFunctionLinear(float input){
 
 }
 
-static float ActivationFunctionSoftmax(float input){
-
-}
-
 static float ActivateFunctionThreshold(float input){
 
     if(input < 0)
@@ -72,7 +68,6 @@ static float(*ActivationFUnction[])(float) = {
     ActivationFunctionReLU,
     ActivationFunctionTanh,
     ActivationFunctionLinear,
-    ActivationFunctionSoftmax,
     ActivateFunctionThreshold,
     ActivationFunctionPL,
     ActivationFunctionSigmoid,
