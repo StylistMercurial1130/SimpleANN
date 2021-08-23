@@ -20,10 +20,9 @@ typedef enum {
     RECTIFIED_LINEAR_ACTIVATION = 0,
     HYPERBOLIC_TANGENT = 1,
     LINEAR = 2,
-    SOFTMAX = 3,
-    THRESHOLD = 4,
-    PIECE_WISE_LINEAR = 5,
-    SIGMOID = 6,
+    THRESHOLD = 3,
+    PIECE_WISE_LINEAR = 4,
+    SIGMOID = 5,
     UNDEFINED = -1
 
 }ActivationFunctionIndex;
