@@ -6,6 +6,10 @@
 #define TOTAL_NO_OF_ACTIVATIONFUNCIONS 7
 #define SLOPE_PARAMETER 0.5
 
+/* 
+    Private class _perceptron
+*/
+
 typedef struct _Perceptron{
 
     float * input;
@@ -16,6 +20,16 @@ typedef struct _Perceptron{
 }_perceptron;
 
 
+
+/*
+    Actiavtion functions 
+        1.ReLU
+        2.Tanh
+        3.Linear
+        4.Threshold
+        5.PiecewiseLinear
+        6.Sigmoid
+*/
 static float ActivationFunctionReLU(float input){
 
     if(input < 0)
@@ -63,6 +77,10 @@ static float ActivationFunctionSigmoid(float input){
 
 }
 
+
+/*
+    Pointer Array function to hold the Actiavtion functions
+*/
 static float(*ActivationFUnction[])(float) = {
 
     ActivationFunctionReLU,
@@ -74,30 +92,46 @@ static float(*ActivationFUnction[])(float) = {
 
 };
 
+/*
+
+    Setting the input variable of the _perceptron
+*/
+
 static void _FeedForward(float input[],float weights[],int size,_perceptron * p){
 
     if(p->input == NULL)
         p->input = (float *)calloc(size,sizeof(float));
     
-    for(int i = 0;i < size;i++)
+    for(int i = 0;i < size;i++){
         p->input[i] = input[i] * weights[i];
+    }
+        
     
     p->size = size;
 
 }
 
+/*
+    set the _perceptron's pointer to null as to avoid segmentation fault
+*/
 static void Set_perceptronPointers(_perceptron * p){
 
     p->input = NULL;
 
 }
 
+/*
+    Free the _perceptron pointer
+*/
 static void _FreePerceptron(_perceptron * p){
 
     free(p->input);
 
 }
 
+/*
+    Return the Output for computation/Algorithim
+*/
 static float _GetOutput(_perceptron * p){
     return p->output;
 }
@@ -115,6 +149,9 @@ static void _SummingFunction(_perceptron * p,float bias){
 
 }
 
+/*
+    Set the Activation Function index to choose which activation is to be used
+*/
 static void _SetActivationFunction(_perceptron * p,ActivationFunctionIndex index){
 
     if(index < TOTAL_NO_OF_ACTIVATIONFUNCIONS)
@@ -124,6 +161,9 @@ static void _SetActivationFunction(_perceptron * p,ActivationFunctionIndex index
 
 }
 
+/*
+    pass the output through the activatoin function
+*/
 static void _OutputFromActivationFunction(_perceptron * p){
 
     if(p->index == UNDEFINED){
@@ -135,6 +175,9 @@ static void _OutputFromActivationFunction(_perceptron * p){
     
 }
 
+/*
+    Init Perceptron
+*/
 Perceptron * InitPerceptron(){
 
     Perceptron * instance = (Perceptron *)malloc(sizeof(Perceptron));
@@ -165,6 +208,7 @@ void FeedForward(float input[],float weights[],int size,float bias,Perceptron * 
         perceptron->weights[i] = weights[i];
 
     }
+
 
     perceptron->bias = bias;
 
