@@ -98,6 +98,10 @@ static void _FreePerceptron(_perceptron * p){
 
 }
 
+static float _GetOutput(_perceptron * p){
+    return p->output;
+}
+
 static void _SummingFunction(_perceptron * p,float bias){
 
     int size = p->size;
@@ -188,6 +192,12 @@ void OutputFromActivationFunction(Perceptron * instance){
 
 }
 
+
+float GetOuput(Perceptron * instance){
+
+    float output = _GetOutput(instance->m_perceptron);
+    return output;
+}
 
 void FreePerceptron(Perceptron * instance){
 
